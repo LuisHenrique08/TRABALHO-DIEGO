@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Pedido</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Monte Seu Pedido</h1>
+    </header>
+    
+    <div>
+        <button onclick="adicionarItem('Cheeseburger', 15)">Adicionar Cheeseburger - R$15</button>
+        <button onclick="adicionarItem('X-Bacon', 18)">Adicionar X-Bacon - R$18</button>
+        <button onclick="adicionarItem('X-Salada', 16)">Adicionar X-Salada - R$16</button>
+        <button onclick="adicionarItem('X-Tudo', 22)">Adicionar X-Tudo - R$22</button>
+        <button onclick="adicionarItem('Batata Frita', 10)">Adicionar Batata Frita - R$10</button>
+        <button onclick="adicionarItem('Refrigerante', 7)">Adicionar Refrigerante - R$7</button>
+    </div>
+
+    <h2>Carrinho</h2>
+    <ul id="carrinho"></ul>
+    <h3>Total: R$<span id="total">0</span></h3>
+
+    <h2>Forma de Pagamento</h2>
+    <select id="forma-pagamento">
+        <option value="cartao">Cartão</option>
+        <option value="pix">Pix</option>
+        <option value="dinheiro">Dinheiro na Entrega</option>
+    </select>
+
+    <h3>Resumo do Pedido</h3>
+    <p>Forma de Pagamento: <span id="resumo-pagamento">Cartão</span></p>
+    
+    <div id="pix-container" style="display: none;">
+        <h3>QR Code para pagamento via Pix</h3>
+        <img id="qrcode" src="" alt="QR Code Pix">
+    </div>
+
+    <p id="cartao-msg" style="display: none;">O pagamento será realizado na entrega.</p>
+
+    <button onclick="finalizarPedido()">Finalizar Pedido</button>
+
+    <a href="index.html">Voltar</a>
+</body>
+</html>
