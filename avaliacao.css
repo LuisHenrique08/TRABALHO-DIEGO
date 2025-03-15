@@ -1,0 +1,106 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; /* Preto */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff; /* Texto branco */
+}
+
+.container {
+    background-color: #333; /* Cinza escuro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    color: #ff6600; /* Laranja */
+    margin-bottom: 20px;
+}
+
+.destaque {
+    color: #ffcc00; /* Amarelo claro para destaque */
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #ccc; /* Cinza claro */
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #555; /* Cinza médio */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #444; /* Cinza escuro */
+    color: #fff; /* Texto branco */
+}
+
+.estrelas {
+    margin-bottom: 10px;
+}
+
+.estrelas span {
+    font-size: 30px;
+    cursor: pointer;
+    color: #555; /* Cinza médio */
+    transition: color 0.2s;
+}
+
+.estrelas span.ativa, .estrelas span:hover {
+    color: #ffcc00; /* Amarelo claro */
+}
+
+button {
+    background-color: #ff6600; /* Laranja */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e65c00; /* Laranja mais escuro */
+}
+
+.avaliacoes {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.avaliacao {
+    background-color: #444; /* Cinza escuro */
+    padding: 10px;
+    border: 1px solid #555; /* Cinza médio */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.avaliacao h3 {
+    margin: 0;
+    color: #ff6600; /* Laranja */
+}
+
+.avaliacao p {
+    margin: 5px 0;
+    color: #ccc; /* Cinza claro */
+}
+
+.avaliacao small {
+    color: #888; /* Cinza mais claro */
+}

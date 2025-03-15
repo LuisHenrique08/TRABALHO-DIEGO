@@ -3,18 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avaliações</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <title>Avaliação da Hamburgueria</title>
+    <style>
+        body {
+            color: #ffffff;
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(141, 0, 0, 0.1);
+        }
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .star {
+            font-size: 30px;
+            cursor: pointer;
+            color: gray;
+        }
+        .star.selected {
+            color: gold;
+        }
+        .comment-box {
+            margin-top: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #c97f11;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #c0720b;
+        }
+        .comments-section {
+
+            margin-top: 30px;
+            text-align: left;
+        }
+        .comment {
+            background: #535151;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border-left: 5px solid #af6e0c;
+        }
+        footer {
+            margin-top: 50px;
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .botao {
+    display: inline-block;
+    background-color: #f3ac12;
+    color: #000;
+    padding: 15px 20px;
+    margin: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+        
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Avaliações dos Clientes</h1>
-    </header>
-    <textarea id="comentario" placeholder="Deixe sua avaliação"></textarea>
-    <button onclick="adicionarComentario()">Enviar</button>
-    <h2>Comentários:</h2>
-    <ul id="lista-comentarios"></ul>
-    <a href="index.html">Voltar</a>
+    <div class="container">
+        <h2>Faça sua avaliação!</h2>
+        <p>O que achou da nossa hamburgueria?</p>
+        <div class="stars" id="stars">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+        </div>
+        <p id="rating-text">Sua avaliação: 0 estrelas</p>
+        
+        <div class="comment-box">
+            <input type="text" id="name" placeholder="Digite seu nome">
+            <textarea id="comment" placeholder="Deixe seu comentário..."></textarea>
+            <button onclick="submitReview()">Enviar Avaliação</button>
+        </div>
+
+        <div class="comments-section" id="comments-section">
+            <h3>Comentários:</h3>
+        </div>
+    </div>
+    <a href="index.html" class="botao">Voltar</a>
+    <footer>
+        <p>&copy; 2025 GOURMET BURGERS. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const stars = document.querySelectorAll('.star');
+        const ratingText = document.getElementById('rating-text');
+        const commentsSection = document.getElementById('comments-section');
+        let selectedRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = star.getAttribute('data-value');
+                ratingText.textContent = `Sua avaliação: ${selectedRating} estrelas`;
+                stars.forEach(s => s.classList.remove('selected'));
+                for (let i = 0; i < selectedRating; i++) {
+                    stars[i].classList.add('selected');
+                }
+            });
+        });
+
+        function submitReview() {
+            const name = document.getElementById('name').value.trim();
+            const comment = document.getElementById('comment').value.trim();
+            
+            if (selectedRating === 0) {
+                alert('Por favor, selecione uma avaliação antes de enviar.');
+                return;
+            }
+            if (name === '') {
+                alert('Por favor, informe seu nome antes de enviar.');
+                return;
+            }
+            if (comment === '') {
+                alert('Por favor, escreva um comentário antes de enviar.');
+                return;
+            }
+            
+            const newComment = document.createElement('div');
+            newComment.classList.add('comment');
+            newComment.innerHTML = `<strong>${name} - ${selectedRating} estrelas</strong><p>${comment}</p>`;
+            commentsSection.appendChild(newComment);
+            
+            document.getElementById('name').value = '';
+            document.getElementById('comment').value = '';
+            alert('Avaliação enviada com sucesso!');
+        }
+        
+    </script>
 </body>
 </html>

@@ -82,4 +82,3 @@ function finalizarPedido() {
     total = 0;
     atualizarCarrinho();
 }
-
