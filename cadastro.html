@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3 id="titulo-form">Cadastro de Usuário</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">FAÇA SEU CADASTRO OU ENTRE COM SEU E-MAIL</div>
+
+                        <!-- Formulário completo -->
+                        <form id="form-cadastro" action="/cadastrar" method="POST">
+                            <div class="mb-3">
+                                <label class="form-label">Nome</label>
+                                <input type="text" name="nome" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">E-mail</label>
+                                <input type="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Senha</label>
+                                <input type="password" name="senha" class="form-control" required>
+                            </div>
+                            <div class="btn-container">
+                                <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+                            </div>
+                        </form>
+
+                        <!-- Formulário de login simplificado -->
+                        <form id="form-login" action="/login" method="POST" style="display: none;">
+                            <div class="mb-3">
+                                <label class="form-label">E-mail</label>
+                                <input type="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="btn-container">
+                                <button type="submit" class="btn btn-success w-100">Entrar</button>
+                            </div>
+                        </form>
+
+                        <!-- Botões para alternar entre cadastro e login -->
+                        <div class="text-center mt-3">
+                            <button id="btn-ja-tenho-conta" class="btn btn-link">Já tenho uma conta</button>
+                            <button id="btn-cadastrar-novo" class="btn btn-link" style="display: none;">Criar nova conta</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para alternar para o login
+        document.getElementById("btn-ja-tenho-conta").addEventListener("click", function () {
+            document.getElementById("form-cadastro").style.display = "none";
+            document.getElementById("form-login").style.display = "block";
+            document.getElementById("btn-ja-tenho-conta").style.display = "none";
+            document.getElementById("btn-cadastrar-novo").style.display = "inline";
+            document.getElementById("titulo-form").innerText = "Entrar no Sistema";
+        });
+    
+        // Função para alternar para o cadastro
+        document.getElementById("btn-cadastrar-novo").addEventListener("click", function () {
+            document.getElementById("form-cadastro").style.display = "block";
+            document.getElementById("form-login").style.display = "none";
+            document.getElementById("btn-ja-tenho-conta").style.display = "inline";
+            document.getElementById("btn-cadastrar-novo").style.display = "none";
+            document.getElementById("titulo-form").innerText = "Cadastro de Usuário";
+        });
+    
+        // Redireciona para cardapio.html após cadastro ou login
+        function redirectToindex() {
+            window.location.href = "index.html"; // Redireciona para o cardápio
+        }
+    
+        // Adiciona a ação de redirecionamento após o envio do formulário de cadastro
+        document.getElementById("form-cadastro").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+    
+            // Simula o envio de dados do formulário de cadastro
+            setTimeout(function() {
+                redirectToindex(); // Redireciona após o cadastro
+            }, 1000); // Espera 1 segundo antes de redirecionar (simula o tempo de envio)
+        });
+    
+        // Adiciona a ação de redirecionamento após o envio do formulário de login
+        document.getElementById("form-login").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o envio do formulário de login
+    
+            // Simula o envio de dados do formulário de login
+            setTimeout(function() {
+                redirectToindex(); // Redireciona após o login
+            }, 1000); // Espera 1 segundo antes de redirecionar
+        });
+    </script>
+    
+</body>
+</html>

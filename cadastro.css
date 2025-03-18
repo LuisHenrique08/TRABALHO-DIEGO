@@ -1,0 +1,125 @@
+/* Estilos gerais */
+body {
+    background-color: #d31b1b;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container principal */
+.container {
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Estilo do Card */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+/* Cabeçalho do card */
+.card-header {
+    background-color: #ff6600;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Mensagem de alerta */
+.alert {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #e7f3fe;
+    border-color: #c3e6cb;
+}
+
+/* Formulário */
+.form-label {
+    font-weight: 600;
+}
+
+/* Campo de input */
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Estilo para o botão */
+.btn-primary {
+    background-color: #ff6600;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #dd7616;
+}
+
+/* Botão de login */
+.btn-success {
+    background-color: #ff6600;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.btn-success:hover {
+    background-color: #d6790e;
+}
+
+/* Botões para alternar entre cadastro e login */
+.btn-link {
+    background: none;
+    border: none;
+    color: #000000;
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Container dos botões */
+.btn-container {
+    margin-top: 20px;
+}
+
+/* Formulário de login e cadastro - exibição condicional */
+#form-cadastro, #form-login {
+    display: block;
+}
+
+/* Estilo para os títulos */
+#titulo-form {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Botões para alternar entre cadastro e login */
+#btn-ja-tenho-conta {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#btn-cadastrar-novo {
+    display: none;
+}
